@@ -16,3 +16,5 @@ No collaborators
 
 License
 No license
+
+Link to deployed site: https://pasfrad.github.io/Homework-6-weather-dashboard/
