@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-success" style="--bs-bg-opacity: .5;">
+    <div>
+        <div>
+            <div
+                class="flex-row align-start align-stretch-md bg-primary">
+                <div class="col-12 col-md-5 bg-light p-3">
+                    <h1 class="text-primary">Weather Dashboard</h1>
+                    <input type="search" id="city-input" class="form-input w-100" placeholder="City Name">
+                    <select id="state-input" class="form-input w-100">
+                        <option value="" disabled selected>Select a state</option>
+                        <option value="AL">AL</option>
+                        <option value="AK">AK</option>
+                        <option value="AZ">AZ</option>
+                        <option value="AR">AR</option>
+                        <option value="CA">CA</option>
+                        <option value="CO">CO</option>
+                        <option value="CT">CT</option>
+                        <option value="DE">DE</option>
+                        <option value="DC">DC</option>
+                        <option value="FL">FL</option>
+                        <option value="GA">GA</option>
+                        <option value="HI">HI</option>
+                        <option value="ID">ID</option>
+                        <option value="IL">IL</option>
+                        <option value="IN">IN</option>
+                        <option value="IA">IA</option>
+                        <option value="KS">KS</option>
+                        <option value="KY">KY</option>
+                        <option value="LA">LA</option>
+                        <option value="ME">ME</option>
+                        <option value="MD">MD</option>
+                        <option value="MA">MA</option>
+                        <option value="MI">MI</option>
+                        <option value="MN">MN</option>
+                        <option value="MS">MS</option>
+                        <option value="MO">MO</option>
+                        <option value="MT">MT</option>
+                        <option value="NE">NE</option>
+                        <option value="NV">NV</option>
+                        <option value="NH">NH</option>
+                        <option value="NJ">NJ</option>
+                        <option value="NM">NM</option>
+                        <option value="NY">NY</option>
+                        <option value="NC">NC</option>
+                        <option value="ND">ND</option>
+                        <option value="OH">OH</option>
+                        <option value="OK">OK</option>
+                        <option value="OR">OR</option>
+                        <option value="PA">PA</option>
+                        <option value="PR">PR</option>
+                        <option value="RI">RI</option>
+                        <option value="SC">SC</option>
+                        <option value="SD">SD</option>
+                        <option value="TN">TN</option>
+                        <option value="TX">TX</option>
+                        <option value="UT">UT</option>
+                        <option value="VT">VT</option>
+                        <option value="VA">VA</option>
+                        <option value="VI">VI</option>
+                        <option value="WA">WA</option>
+                        <option value="WV">WV</option>
+                        <option value="WI">WI</option>
+                        <option value="WY">WY</option>
+                    </select>
+                    <button class="btn btn-info" id="searchBtn">Search</button>
+                </div>
+            </div>
+            <br>
+            <div id="falseSearchText"></div>
+            <div class="card text-white bg-secondary p-3" style="max-width: 18rem;">
+                <div class="card-title" id="cityNameDisplay"></div>
+                <div id="dateDisplay"></div>
+                <div id="iconDisplay"></div>
+                <div id="temperatureDisplay"></div>
+                <div id="humidityDisplay"></div>
+                <div id="windSpeedDisplay"></div>
+                <div id="UVIndexDisplay"></div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="row">
+        <div id="fiveDayForecast"></div>
+        <br>
+        <div class="col-sm-2">
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-body">
+                    <div class="card-title">Day One:</div>
+                    <div id="dayOneDate"></div>
+                    <div id="dayOneIcon"></div>
+                    <div id="dayOneTemp"></div>
+                    <div id="dayOneHumid"></div>
+                    <div id="dayOneWind"></div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-sm-2">
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-body">
+                    <div class="card-title">Day Two:</div>
+                    <div id="dayTwoDate"></div>
+                    <div id="dayTwoIcon"></div>
+                    <div id="dayTwoTemp"></div>
+                    <div id="dayTwoHumid"></div>
+                    <div id="dayTwoWind"></div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-sm-2">
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-body">
+                    <div class="card-title">Day Three:</div>
+                    <div id="dayThreeDate"></div>
+                    <div id="dayThreeIcon"></div>
+                    <div id="dayThreeTemp"></div>
+                    <div id="dayThreeHumid"></div>
+                    <div id="dayThreeWind"></div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-sm-2">
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-body">
+                    <div class="card-title">Day Four:</div>
+                    <div id="dayFourDate"></div>
+                    <div id="dayFourIcon"></div>
+                    <div id="dayFourTemp"></div>
+                    <div id="dayFourHumid"></div>
+                    <div id="dayFourWind"></div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-sm-2">
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-body">
+                    <div class="card-title">Day Five:</div>
+                    <div id="dayFiveDate"></div>
+                    <div id="dayFiveIcon"></div>
+                    <div id="dayFiveTemp"></div>
+                    <div id="dayFiveHumid"></div>
+                    <div id="dayFiveWind"></div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class = "col-sm-2 list-group" class="searchButtons">
+            <button id="buttonOne"></button>
+            <button id="buttonTwo"></button>
+            <button id="buttonThree"></button>
+            <button id="buttonFour"></button>
+            <button id="buttonFive"></button>
+            <button id="buttonSix"></button>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://kit.fontawesome.com/ce670235db.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
