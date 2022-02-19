@@ -1,7 +1,9 @@
+//defines searchHistory as an empty array so it can be pushed to and pulled from
 let searchHistory = []
 
+//finds the searched city's latitude and longitude to use in the second API
 function findCity(city, stateCode) {
-    const cityQuery = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${stateCode},USA&limit=1&appid=536d3994e8038da0e188300d00649ced`
+    const cityQuery = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${stateCode},USA&limit=1&appid=536d3994e8038da0e188300d00649ced`
 
     fetch(cityQuery)
         .then(function (response) {
@@ -17,11 +19,13 @@ function findCity(city, stateCode) {
                 const cityLatitude = data[0].lat
                 const cityLongitude = data[0].lon
                 console.log(cityLatitude)
+                //calls second API using lat/long data
                 findWeather(cityLatitude, cityLongitude)
                 const cityDisplay = data[0].name
                 $("#cityNameDisplay").text(cityDisplay);
             }
 
+            //pushes city name and state into local history so it can be called again for the buttons
             searchHistory.push({
                 cityName: city, state: stateCode,
               })
@@ -29,6 +33,7 @@ function findCity(city, stateCode) {
         })
 }
 
+//uses latitude and longitude to find the city's weather data
 function findWeather(lat, lon) {
     const weatherQuery = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=imperial&appid=536d3994e8038da0e188300d00649ced`
     fetch(weatherQuery)
@@ -38,19 +43,16 @@ function findWeather(lat, lon) {
         .then(function (data) {
             console.log(data)
 
+            //displays the current date in the top box
             const Date = moment().format('LL');
-            const currentTemp = data.current.temp;
-            const currentHumid = data.current.humidity
-            const currentWind = data.current.wind_speed
-            const currentUVI = data.current.uvi
 
             //lines 47-125: displays searched data
             //Todo: consolidate this with for loops
             $("#dateDisplay").text(Date);
             $("#temperatureDisplay").text("Temperature: " + data.current.temp + " °F");
-            $("#humidityDisplay").text("Humidity: " + currentHumid + " %")
-            $("#windSpeedDisplay").text("Wind speed: " + currentWind + " mph")
-            $("#UVIndexDisplay").text("UV Index: " + currentUVI)
+            $("#humidityDisplay").text("Humidity: " + data.current.humidity + " %")
+            $("#windSpeedDisplay").text("Wind speed: " + data.current.wind_speed + " mph")
+            $("#UVIndexDisplay").text("UV Index: " + data.current.uvi)
 
             if ((parseInt(data.current.clouds))<25){
                 $("#iconDisplay").addClass("fa-solid fa-sun");
@@ -126,6 +128,7 @@ function findWeather(lat, lon) {
                 $("#dayFiveIcon").addClass("fa-solid fa-cloud-sun");
             }
 
+            //calls getHistory function
             getHistory()  
         })
 }
