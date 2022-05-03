@@ -1,20 +1,30 @@
-# Homework-6-weather-dashboard
+# Weather Dashboard
 
-This is the homework for the last week of the first unit of Bootcamp. It involves the use of JQuery, Bootstrap, third-party APIs, and more. They are used to create a dashboard into which a user can search a city and receive several parameters of weather data for it. They can also repeat their recent searches using the right-hand buttons that pop up when a search is made.
+## Table of Contents
 
-Installation
-The website can be viewed on a internet browser.
+- [Picture](#picture)
+- [Description](#description)
+- [License](#license)
+- [Installation](#installation)
+- [Usage](#usage)
 
-Image
-![alt text](./weatherdashboard.png)
+## Picture
+![picture of weather dashboard application](./weatherdashboard.png)
 
-Usage
+## Description
+This is a front-end only application that allows a user to search a US city and see that city's current and forecasted weather, and repeat recent searches.
+
+## License
+None
+
+## Installation
+The website can be viewed on a internet browser, or the repository can be forked.
+
+## Usage
 The website has no outside links or subpages. The user may type the name of any US city into the search bar and select its corresponding state, and the data will appear. They may repeat their recent searches by clicking the right-hand buttons that pop up with their searches.
 
-Credits
-No collaborators
+## Deployed Application
+https://pasfrad.github.io/Homework-6-weather-dashboard/
 
-License
-No license
-
-Link to deployed site: https://pasfrad.github.io/Homework-6-weather-dashboard/
+## For Questions
+rd.hart@outlook.com
