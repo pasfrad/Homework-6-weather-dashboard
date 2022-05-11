@@ -24,7 +24,7 @@ The website can be viewed on a internet browser, or the repository can be forked
 The website has no outside links or subpages. The user may type the name of any US city into the search bar and select its corresponding state, and the data will appear. They may repeat their recent searches by clicking the right-hand buttons that pop up with their searches.
 
 ## Deployed Application
-https://pasfrad.github.io/Homework-6-weather-dashboard/
+https://pasfrad.github.io/Weather-Dashboard/
 
 ## For Questions
 rd.hart@outlook.com
